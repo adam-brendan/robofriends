@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
-import './App.css';
+import '../styles.css';
 import Scroll from '../components/Scroll';
 import ErrorBoundary from '../components/ErrorBoundary'
 
@@ -34,13 +34,17 @@ class App extends Component {
         <h1>Loading...</h1> :
             (
             <div className='tc'>
-                <h1 className='f1'>RoboFriends</h1>
-                <SearchBox searchChange={this.onSearchChange}/>
-                <Scroll>
-                    <ErrorBoundary>
-                        <CardList robots={filteredRobots} />
-                    </ErrorBoundary>
-                </Scroll>
+                <div>
+                    <h1 className='f1 tracked-mega mv5'>RoboFriends</h1>
+                    <SearchBox searchChange={this.onSearchChange}/>
+                </div>
+                <div className='flex justify-center'>
+                    <Scroll>
+                        <ErrorBoundary>
+                            <CardList robots={filteredRobots} />
+                        </ErrorBoundary>
+                    </Scroll>
+                </div>
             </div>
         )
     }
